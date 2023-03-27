@@ -11,6 +11,11 @@ proxies:
   - {name: 22161082, server: "192.168.1.1", port: 61082, type: socks5, skip-cert-verify: true, udp: true}
   - {name: 22161083, server: "192.168.1.1", port: 61083, type: socks5, skip-cert-verify: true, udp: true}
   - {name: 22161084, server: "192.168.1.1", port: 61084, type: socks5, skip-cert-verify: true, udp: true}
+  - {name: 22161085, server: "192.168.1.1", port: 61080, type: socks5, skip-cert-verify: true, udp: true}
+  - {name: 22161086, server: "192.168.1.1", port: 61081, type: socks5, skip-cert-verify: true, udp: true}
+  - {name: 22161087, server: "192.168.1.1", port: 61082, type: socks5, skip-cert-verify: true, udp: true}
+  - {name: 22161088, server: "192.168.1.1", port: 61083, type: socks5, skip-cert-verify: true, udp: true}
+  - {name: 22161089, server: "192.168.1.1", port: 61084, type: socks5, skip-cert-verify: true, udp: true}
 proxy-groups:
   - name: 🚀 节点选择
     type: select
@@ -30,6 +35,11 @@ proxy-groups:
       - 22161082
       - 22161083
       - 22161084
+      - 22161085
+      - 22161086
+      - 22161087
+      - 22161088
+      - 22161089
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
@@ -42,6 +52,11 @@ proxy-groups:
       - 22161082
       - 22161083
       - 22161084
+      - 22161085
+      - 22161086
+      - 22161087
+      - 22161088
+      - 22161089
   - name: 🔯 故障转移
     type: fallback
     url: http://www.gstatic.com/generate_204
@@ -54,6 +69,11 @@ proxy-groups:
       - 22161082
       - 22161083
       - 22161084
+      - 22161085
+      - 22161086
+      - 22161087
+      - 22161088
+      - 22161089
   - name: 🔮 负载均衡-散列
     type: load-balance
     strategy: consistent-hashing
@@ -66,6 +86,11 @@ proxy-groups:
       - 22161082
       - 22161083
       - 22161084
+      - 22161085
+      - 22161086
+      - 22161087
+      - 22161088
+      - 22161089
   - name: 🔮 负载均衡-轮询
     type: load-balance
     strategy: round-robin
@@ -78,6 +103,11 @@ proxy-groups:
       - 22161082
       - 22161083
       - 22161084
+      - 22161085
+      - 22161086
+      - 22161087
+      - 22161088
+      - 22161089
   - name: 📲 电报消息
     type: select
     proxies:
