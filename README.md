@@ -6,30 +6,13 @@ log-level: info
 external-controller: :19090
 proxies:
   - {name: 22156789, server: "192.168.1.1", port: 56789, type: socks5, skip-cert-verify: true, udp: true}
-  - {name: 22161080, server: "192.168.1.1", port: 61080, type: socks5, skip-cert-verify: true, udp: true}
-  - {name: 22161081, server: "192.168.1.1", port: 61081, type: socks5, skip-cert-verify: true, udp: true}
-  - {name: 22161082, server: "192.168.1.1", port: 61082, type: socks5, skip-cert-verify: true, udp: true}
-  - {name: 22161083, server: "192.168.1.1", port: 61083, type: socks5, skip-cert-verify: true, udp: true}
-  - {name: 22161084, server: "192.168.1.1", port: 61084, type: socks5, skip-cert-verify: true, udp: true}
 proxy-groups:
   - name: 🚀 节点选择
     type: select
     proxies:
-      - 🚀 手动切换
-      - 🔮 负载均衡-散列
-      - 🔮 负载均衡-轮询
       - ♻️ 自动选择
-      - 🔯 故障转移
       - DIRECT
-  - name: 🚀 手动切换
-    type: select
-    proxies:
-      - 22156789
-      - 22161080
-      - 22161081
-      - 22161082
-      - 22161083
-      - 22161084
+
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
@@ -37,74 +20,22 @@ proxy-groups:
     tolerance: 50
     proxies:
       - 22156789
-      - 22161080
-      - 22161081
-      - 22161082
-      - 22161083
-      - 22161084
-  - name: 🔯 故障转移
-    type: fallback
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    proxies:
-      - 22156789
-      - 22161080
-      - 22161081
-      - 22161082
-      - 22161083
-      - 22161084
-  - name: 🔮 负载均衡-散列
-    type: load-balance
-    strategy: consistent-hashing
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    proxies:
-      - 22161080
-      - 22161081
-      - 22161082
-      - 22161083
-      - 22161084
-  - name: 🔮 负载均衡-轮询
-    type: load-balance
-    strategy: round-robin
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    proxies:
-      - 22161080
-      - 22161081
-      - 22161082
-      - 22161083
-      - 22161084
   - name: 📲 电报消息
     type: select
     proxies:
       - 🚀 节点选择
-      - ♻️ 自动选择
-      - 🚀 手动切换
-      - DIRECT
   - name: 📹 油管视频
     type: select
     proxies:
       - 🚀 节点选择
-      - ♻️ 自动选择
-      - 🚀 手动切换
-      - DIRECT
   - name: 🎥 奈飞视频
     type: select
     proxies:
       - 🚀 节点选择
-      - ♻️ 自动选择
-      - 🚀 手动切换
-      - DIRECT
   - name: 📺 巴哈姆特
     type: select
     proxies:
       - 🚀 节点选择
-      - 🚀 手动切换
-      - DIRECT
   - name: 📺 哔哩哔哩
     type: select
     proxies:
@@ -113,73 +44,50 @@ proxy-groups:
     type: select
     proxies:
       - 🚀 节点选择
-      - ♻️ 自动选择
-      - 🚀 手动切换
-      - DIRECT
   - name: 🌏 国内媒体
     type: select
     proxies:
       - DIRECT
-      - 🚀 手动切换
   - name: 📢 谷歌FCM
     type: select
     proxies:
       - 🚀 节点选择
-      - DIRECT
-      - 🚀 手动切换
   - name: Ⓜ️ 微软云盘
     type: select
     proxies:
       - 🚀 节点选择
-      - DIRECT
-      - 🚀 手动切换
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
       - 🚀 节点选择
-      - DIRECT
-      - 🚀 手动切换
   - name: 🍎 苹果服务
     type: select
     proxies:
       - 🚀 节点选择
-      - DIRECT
-      - 🚀 手动切换
   - name: 🎮 游戏平台
     type: select
     proxies:
       - 🚀 节点选择
-      - DIRECT
-      - 🚀 手动切换
   - name: 🎶 网易音乐
     type: select
     proxies:
       - DIRECT
-      - 🚀 节点选择
-      - ♻️ 自动选择
   - name: 🎯 全球直连
     type: select
     proxies:
       - DIRECT
-      - 🚀 节点选择
-      - ♻️ 自动选择
   - name: 🛑 广告拦截
     type: select
     proxies:
       - REJECT
-      - DIRECT
   - name: 🍃 应用净化
     type: select
     proxies:
       - REJECT
-      - DIRECT
   - name: 🐟 漏网之鱼
     type: select
     proxies:
       - 🚀 节点选择
-      - ♻️ 自动选择
-      - DIRECT
-      - 🚀 手动切换
 rules:
  - DOMAIN-SUFFIX,acl4.ssr,🎯 全球直连
  - DOMAIN-SUFFIX,ip6-localhost,🎯 全球直连
