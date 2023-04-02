@@ -4,6 +4,7 @@ allow-lan: true
 mode: Rule
 log-level: info
 external-controller: :19090
+
 proxies:
   - {name: 22156789, server: "192.168.123.229", port: 56789, type: socks5, skip-cert-verify: true, udp: true}
 proxy-groups:
